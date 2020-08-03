@@ -1,5 +1,22 @@
 # Docker Socket Proxy
 
+This is forked from a Traefik-endorsed source -- quoted as per [Traefik](https://docs.traefik.io/providers/docker/).
+
+>Expose the Docker socket over TCP or SSH, instead of the default Unix socket file. It allows different implementation levels of the AAA (Authentication, Authorization, Accounting) concepts, depending on your security assessment:
+>    
+>    Authentication with Client Certificates as described in "Protect the Docker daemon socket."  
+>    Authorize and filter requests to restrict possible actions with the **TecnativaDocker Socket Proxy**.  
+>    Authorization with the Docker Authorization Plugin Mechanism  
+>    Accounting at networking level, by exposing the socket only inside a Docker private network, only available for Traefik.  
+>    Accounting at container level, by exposing the socket on a another container than Traefik's. With Swarm mode, it allows scheduling of Traefik on worker nodes, with only the "socket exposer" container on the manager nodes.  
+>    Accounting at kernel level, by enforcing kernel calls with mechanisms like SELinux, to only allows an identified set of actions for Traefik's process (or the "socket exposer" process).  
+>    SSH public key authentication (SSH is supported with Docker > 18.09)  
+
+The only required permission is "- `CONTAINERS`".
+
+
+# Original Below
+
 [![](https://images.microbadger.com/badges/version/tecnativa/docker-socket-proxy:latest.svg)](https://microbadger.com/images/tecnativa/docker-socket-proxy:latest "Get your own version badge on microbadger.com")
 [![](https://images.microbadger.com/badges/image/tecnativa/docker-socket-proxy:latest.svg)](https://microbadger.com/images/tecnativa/docker-socket-proxy:latest "Get your own image badge on microbadger.com")
 [![](https://images.microbadger.com/badges/commit/tecnativa/docker-socket-proxy:latest.svg)](https://microbadger.com/images/tecnativa/docker-socket-proxy:latest "Get your own commit badge on microbadger.com")
